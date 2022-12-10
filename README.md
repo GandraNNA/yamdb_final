@@ -1,23 +1,22 @@
 # yamdb_final
 
-## _**Описание**_
+![Build status](https://github.com/GandraNNA/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
+
+## Описание
 
 Групповой проект API YaMDb. Социальная сеть, в которой хранятся
 произведения (книги, фильмы или музыка) с возможностью оставить отзыв.
 
-## _**Установка**_
+## Установка
 
-### Клонировать репозиторий и перейти в него в командной строке:
-
-```
-git clone https://github.com/GandraNNA/infra_sp2.git
-```
+Клонировать репозиторий и перейти в него в командной строке:
 
 ```
-cd infra_sp2
+$ git clone https://github.com/GandraNNA/infra_sp2.git
+$ cd infra_sp2
 ```
 
-### Создайте в папке infra файл '.env' и добавте туда:
+Создайте в папке "infra" файл ".env" и добавьте туда:
 
 ```
 DB_ENGINE=django.db.backends.postgresql # указываем, что работаем с postgresql
@@ -34,77 +33,38 @@ DB_PORT=5432 # порт для подключения к БД
 SECRET_KEY='your_key'
 ```
 
-Сгенерировать и получить секретный ключ можно выполнив такой python
-код:
+Сгенерировать и получить секретный ключ можно выполнив такой код:
 
 ```
-from django.core.management.utils import get_random_secret_key
+$ from django.core.management.utils import get_random_secret_key
 print(get_random_secret_key())
 ```
 
-### Перейти в директорию с файлом docker-compose и выполнить:
+Перейти в директорию с файлом docker-compose и выполнить:
 ```
-cd infra
-```
-```
-sudo docker-compose up -d --build
+$ cd infra
+$ sudo docker-compose up -d --build
 ```
 
-### Выполнить миграции внутри контейнера, создайте пользователя и соберите статику:
+Выполнить миграции внутри контейнера, создайте пользователя и соберите статику:
 
 ```
-docker-compose exec web python manage.py migrate
+$ docker-compose exec web python manage.py migrate
+$ docker-compose exec web python manage.py createsuperuser
+$ docker-compose exec web python manage.py collectstatic --no-input
 ```
 
-```
-docker-compose exec web python manage.py createsuperuser
-```
+Создайте резервную копию БД:
 
 ```
-docker-compose exec web python manage.py collectstatic --no-input
+$ docker-compose exec web python manage.py dumpdata > fixtures.json
 ```
 
-### Создайте резервную копию БД:
-
-```
-docker-compose exec web python manage.py dumpdata > fixtures.json
-```
-
-В PyCharm активировать виртуальное окружение в терминале можно так:
-
-```
-.\venv\Scripts\activate.ps1
-```
-
-### Обновить pip:
-
-```
-python -m pip install --upgrade pip
-```
-
-### Установить зависимости из файла requirements.txt:
-
-```
-pip install -r requirements.txt
-```
-
-### Выполнить миграции:
-
-```
-python manage.py migrate
-```
-
-### Запустить проект:
-
-```
-python manage.py runserver
-```
-
-## _**Некоторые примеры запросов.**_
+## Некоторые примеры запросов.
 
 Можно поcмотреть после установки проекта по ссылке:
 http://localhost/redoc/
 
-### _**Автор:**_
+## Автор
 
-_**Анна Гандрабура**_
+[Анна Гандрабура](https://github.com/GandraNNA)
