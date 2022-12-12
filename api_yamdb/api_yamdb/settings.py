@@ -12,10 +12,10 @@ load_dotenv()
 SECRET_KEY = os.getenv('SECRET_KEY', default='secret')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS',
-                               default='hosts').split(', ')
+                               default='8.8.8.8').split(',')
 
 # Application definition
 
