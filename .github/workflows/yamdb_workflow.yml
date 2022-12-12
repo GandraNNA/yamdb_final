@@ -1,6 +1,6 @@
 name: Django-app workflow
 
-on: push
+on: [push]
 
 jobs:
   # проверка кода на соответствие стандарту PEP8 (с помощью пакета
@@ -63,7 +63,7 @@ jobs:
             sudo docker pull gandranna/yamdb_final:latest
             sudo docker-compose stop
             sudo docker-compose rm web
-            rm -f .env
+#            rm -f .env
             touch .env
             echo ALLOWED_HOSTS=${{ secrets.ALLOWED_HOSTS }} >> .env
             echo SECRET_KEY=${{ secrets.SECRET_KEY }} >> .env
