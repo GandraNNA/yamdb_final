@@ -1,6 +1,6 @@
 # yamdb_final
 
-[![Build status](https://github.com/GandraNNA/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)](http://158.160.14.19)
+[![Build status](https://github.com/GandraNNA/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)](http://158.160.14.19/admin)
 
 ## Описание
 
