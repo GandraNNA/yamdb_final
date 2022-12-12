@@ -1,10 +1,10 @@
 name: Django-app workflow
 
-on: [push]
+on: push
 
 jobs:
-# - проверка кода на соответствие стандарту PEP8 (с помощью пакета
-#   flake8) и запуск pytest из репозитория yamdb_final;
+  # проверка кода на соответствие стандарту PEP8 (с помощью пакета
+  # flake8) и запуск pytest из репозитория yamdb_final
   tests:
     runs-on: ubuntu-latest
 
@@ -25,7 +25,7 @@ jobs:
       run: |
         python -m flake8
         pytest
-# - сборка и доставка докер-образа для контейнера web на Docker Hub;
+  # сборка и доставка докер-образа для контейнера web на Docker Hub
   build_and_push_to_docker_hub:
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
@@ -46,10 +46,12 @@ jobs:
           context: ./api_yamdb/
           push: true
           tags: gandranna/yamdb_final:latest
-# - автоматический деплой проекта на боевой сервер;
+
+  # автоматический деплой проекта на боевой сервер
   deploy:
     runs-on: ubuntu-latest
     needs: build_and_push_to_docker_hub
+    if: github.ref == 'refs/heads/master'
     steps:
       - name: executing remote ssh commands to deploy
         uses: appleboy/ssh-action@master
@@ -62,16 +64,21 @@ jobs:
             sudo docker pull gandranna/yamdb_final:latest
             sudo docker-compose stop
             sudo docker-compose rm web
+            rm -f .env
             touch .env
+            echo ALLOWED_HOSTS=${{ secrets.ALLOWED_HOSTS }} >> .env
+            echo SECRET_KEY=${{ secrets.SECRET_KEY }} >> .env
             echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
             echo DB_NAME=${{ secrets.DB_NAME }} >> .env
             echo POSTGRES_USER=${{ secrets.POSTGRES_USER }} >> .env
             echo POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }} >> .env
             echo DB_HOST=${{ secrets.DB_HOST }} >> .env
             echo DB_PORT=${{ secrets.DB_PORT }} >> .env
+            echo SSH_KEY=${{ secrets.SSH_KEY }} >> .env
             sudo docker-compose up -d
-# - отправка уведомления в Telegram о том, что процесс деплоя успешно
-#   завершился.
+            sudo docker-compose exec web python manage.py migrate
+  # отправка уведомления в Telegram о том, что процесс деплоя успешно
+  # завершился.
   send_message:
     runs-on: ubuntu-latest
     needs: deploy
