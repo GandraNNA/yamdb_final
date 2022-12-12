@@ -2,11 +2,14 @@
 
 ![Build status](https://github.com/GandraNNA/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
 
-страница [admin](http://158.160.14.19/admin)
 ## Описание
 
 Групповой проект API YaMDb. Социальная сеть, в которой хранятся
 произведения (книги, фильмы или музыка) с возможностью оставить отзыв.
+
+страница [admin](http://158.160.14.19/admin)
+страница redoc [redoc](http://158.160.14.19/redoc)
+пример рандомной страницы [category](http://158.160.14.19/api/v1/categories/) 
 
 ## Установка
 
