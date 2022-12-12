@@ -1,7 +1,8 @@
 # yamdb_final
 
-[![Build status](https://github.com/GandraNNA/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)](http://158.160.14.19/admin)
+![Build status](https://github.com/GandraNNA/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
 
+страница [admin](http://158.160.14.19/admin)
 ## Описание
 
 Групповой проект API YaMDb. Социальная сеть, в которой хранятся
