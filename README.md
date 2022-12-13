@@ -2,6 +2,8 @@
 
 ![Build status](https://github.com/GandraNNA/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
 
+_*Не останавливаю машину, чтоб мог проверить. Ниже в описание страницы*_
+
 ## Описание
 
 Групповой проект API YaMDb. Социальная сеть, в которой хранятся
