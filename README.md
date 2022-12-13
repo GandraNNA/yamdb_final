@@ -7,9 +7,11 @@
 Групповой проект API YaMDb. Социальная сеть, в которой хранятся
 произведения (книги, фильмы или музыка) с возможностью оставить отзыв.
 
-страница [admin](http://158.160.14.19/admin)
-страница redoc [redoc](http://158.160.14.19/redoc)
-пример рандомной страницы [category](http://158.160.14.19/api/v1/categories/) 
+- страница [admin](http://158.160.14.19/admin)
+
+- страница [redoc](http://158.160.14.19/redoc), где можно посмотреть примеры запросов
+
+- пример рандомной страницы [category](http://158.160.14.19/api/v1/categories/) 
 
 ## Установка
 
@@ -63,11 +65,6 @@ $ docker-compose exec web python manage.py collectstatic --no-input
 ```
 $ docker-compose exec web python manage.py dumpdata > fixtures.json
 ```
-
-## Некоторые примеры запросов.
-
-Можно поcмотреть после установки проекта по ссылке:
-http://localhost/redoc/
 
 ## Автор
 
