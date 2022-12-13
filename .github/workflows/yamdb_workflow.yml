@@ -45,7 +45,6 @@ jobs:
           context: ./api_yamdb/
           push: true
           tags: gandranna/yamdb_final:latest
-
   # автоматический деплой проекта на боевой сервер
   deploy:
     runs-on: ubuntu-latest
